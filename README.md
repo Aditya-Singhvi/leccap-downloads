@@ -52,7 +52,6 @@ The `courses` object has information about which courses you want to scrape. Eac
   - If you want to have multiple courses with the same name considered, you should include a more specific string as the name — for instance, `eecs 477 001 - Fall 2023` and `eecs 477 001 - Winter 2023`. 
 
 ![image](images/courses-by-year.png)
-
 - For a given course, you may specify filters to configure which recordings you wish to download. 
   - For instance, you may only want to download the 10:30 AM lectures; or perhaps the Section 001 lectures and the Section 025 Discussions; or maybe you want all of the lectures and the review sessions. All these can be achieved with filters. 
   - There are three filter properties that you can specify for each course: a `title_filter`, a `section_filter`, and a `time_filter`. Each of these properties is an array of strings; you may specify 0, 1, 2, or all 3. 
@@ -69,8 +68,7 @@ Navigate to the `mass-download/` directory in your terminal and run `$ make`.
 
 The script will open a browser window to the lecture capture website; once you have logged in, the window will automatically minimize and the script will begin scraping recordings based on your configuration. 
 
-
-
+![image](images/example-run.png)
 
 ## Usage (One-Off Script)
 You simply need to navigate to the course page for which you want to download recordings (second screenshot above), open up the browser console, and run the script. This will prompt you to download a `links.txt` file with links to all recordings. From here, you can use the command 
@@ -80,5 +78,7 @@ $ xargs < links.txt -P 0 -L 1 wget -O
 to download all recordings in `links.txt` simultaneously. 
 
 Note that you can only download one course at a time with this script. In order to filter recordings using this script, you will have to implement your own logic. 
+
+
 
 
