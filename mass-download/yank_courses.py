@@ -224,14 +224,14 @@ def downloadVideos(save_path: str):
 
 
 def main():
+    driver = startSession()
+
     with open(f"{CONFIG_FILE}", 'r') as file:
         config = json.loads(file.read())
     start_year = config["start_year"]
     output_path = config["directory_path"]
     courses_to_yank = {k.lower(): v for k, v in config["courses"].items()}
     print(courses_to_yank)
-
-    driver = startSession()
 
     for year in range(start_year, date.today().year + 1):
         print(f"\n\nWorking on {year}...")

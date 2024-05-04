@@ -73,7 +73,12 @@ The script will open a browser window to the lecture capture website; once you h
 
 
 ## Usage (One-Off Script)
+You simply need to navigate to the course page for which you want to download recordings (second screenshot above), open up the browser console, and run the script. This will prompt you to download a `links.txt` file with links to all recordings. From here, you can use the command 
+```
+$ xargs < links.txt -P 0 -L 1 wget -O 
+```
+to download all recordings in `links.txt` simultaneously. 
 
-
+Note that you can only download one course at a time with this script. In order to filter recordings using this script, you will have to implement your own logic. 
 
 
