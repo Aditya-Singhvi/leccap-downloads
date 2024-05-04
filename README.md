@@ -50,6 +50,9 @@ The `courses` object has information about which courses you want to scrape. Eac
   - Searching for a course name is *not* case-sensitive. 
   - Only the first course found containing a given course name will be scraped; this is the earliest one with the lowest section number. This is because the majority of courses with multiple sections (for instance, a lecture and a discussion) show up as duplicates. 
   - If you want to have multiple courses with the same name considered, you should include a more specific string as the name — for instance, `eecs 477 001 - Fall 2023` and `eecs 477 001 - Winter 2023`. 
+
+![image](images/courses-by-year.png)
+
 - For a given course, you may specify filters to configure which recordings you wish to download. 
   - For instance, you may only want to download the 10:30 AM lectures; or perhaps the Section 001 lectures and the Section 025 Discussions; or maybe you want all of the lectures and the review sessions. All these can be achieved with filters. 
   - There are three filter properties that you can specify for each course: a `title_filter`, a `section_filter`, and a `time_filter`. Each of these properties is an array of strings; you may specify 0, 1, 2, or all 3. 
@@ -59,16 +62,12 @@ The `courses` object has information about which courses you want to scrape. Eac
   - `section_filter`: A recording matches a `section_filter` if its section includes any of the strings in the `section_filter` array (case-insensitive). Note that section numbers are not always specified.
   - `time_filter`: A recording matches a `time_filter` if its start time is within 15 minutes of any of the times in the `time_filter` array. Times are specified in `H:MM AM/PM` format — for instance, `10:30 AM`. 
   
-Below are some screenshots explaining what is meant by the course name, title, section, and time. 
+![image](images/course-page.png)
 
 ### Running the script
 Navigate to the `mass-download/` directory in your terminal and run `$ make`. 
 
 The script will open a browser window to the lecture capture website; once you have logged in, the window will automatically minimize and the script will begin scraping recordings based on your configuration. 
-
-![image](images/courses-by-year.png)
-![image](images/course-page.png)
-
 
 
 
