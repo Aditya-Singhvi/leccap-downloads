@@ -1,0 +1,46 @@
+{
+    "start_year": 2021,
+    "directory_path": "/Volumes/Extreme Pro/lectures/",
+    "courses": {
+        "ala 104": {},
+        "eecs 281": {
+            "time_filters": [
+                "1:30 PM"
+            ]
+        },
+        "eecs 376": {
+            "time_filters": [
+                "1:30 PM"
+            ]
+        },
+        "eecs 370": {
+            "time_filters": [
+                "9:00 AM"
+            ]
+        },
+        "eecs 442": {},
+        "eecs 477 001 - Winter 2023": {
+            "section_filters": [
+                "001",
+                "012"
+            ]
+        },
+        "eecs 483": {},
+        "eecs 574": {},
+        "eecs 598 003": {},
+        "eecs 477 011 - Fall 2023": {
+            "section_filters": [
+                "001",
+                "012"
+            ]
+        },
+        "eecs 489": {},
+        "eecs 482": {
+            "title_filters": [
+                "C++",
+                "Ajay",
+                "Lecture"
+            ]
+        }
+    }
+}
