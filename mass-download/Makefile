@@ -1,4 +1,4 @@
 .PHONY: run
 
 run:
-	python3 yank_courses.py
+	python3 yank_cou
