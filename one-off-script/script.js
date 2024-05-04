@@ -1,3 +1,8 @@
+// Author: Ajay Pillay
+
+// Run the following in the browser console of the course page
+// (where you can see links to all the recordings). 
+
 var links = "";
 
 await Promise.all(recordings.map(async (lec) => {
@@ -12,3 +17,11 @@ var file = new Blob([links], {type: "text/plain"});
 a.href = URL.createObjectURL(file);
 a.download = "links.txt";
 a.click();
+
+// Once this is done:
+//  (1) Navigate to the directory with links.txt in your terminal. 
+//  (2) Run 
+//          xargs < links.txt -P 0 -L 1 wget -O 
+//      to start downloading all recordings in parallel. You can change 
+//      -P 0 to -P 4 or any desired value to limit the number of concurrent 
+//      downloads. When set to 0, this runs as many as it can. 
