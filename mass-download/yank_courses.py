@@ -132,7 +132,14 @@ def startSession() -> webdriver.Chrome:
 
 def getCourseToURLMap(driver: webdriver.Chrome, year: int, course_names: list[str]) -> dict[str, str]:
     """
-    Given a Selenium Chrome Webdriver
+    Given a Selenium Chrome webdriver, a year, and a list of course names, 
+    navigates to that year of courses in the Lecture Capture system and finds
+    the course page URLs for any available course that appears in course_names.
+
+    The current session in the webdriver should be logged into Lecture Capture. 
+    A course is defined as appearing in the list course_names if any of the 
+    strings in course_names appear as contiguous substrings of the course's
+    name (case-insensitive).
     """
     course_to_url = dict()
     try:
@@ -169,6 +176,10 @@ def saveLinks(
     section_filters: list[str] = [],
     time_filters: list[str] = [],
 ):
+    """
+    Given the URL to a Lecture Capture course page, a webdriver, and sets of
+    filters, saves links to all recordings that match the filters. 
+    """
     course_url = f"{LECCAP_BASE_URL}{course_url}"
     print(f"\tCourse URL: {course_url}")
     print(f"\tSave Path: {save_path}")
@@ -207,6 +218,15 @@ def saveLinks(
 
 
 def downloadVideos(save_path: str):
+    """
+    Given a directory save_path with a links.txt file inside, downloads
+    content from all the contained URLs.
+
+    links.txt should be created using saveLinks(), with the format as
+        [name (no spaces)] [url] \n
+        [name (no spaces)] [url] \n
+        ...
+    """
     with open(f"{save_path}/download_output.txt", "w") as file:
         process = subprocess.Popen(
             "exec xargs < links.txt -P 0 -L 1 wget -O",
