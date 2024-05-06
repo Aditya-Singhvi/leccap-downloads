@@ -10,7 +10,7 @@ await Promise.all(recordings.map(async (lec) => {
   "credentials": "include"});
     const data = await res.json();
     lec.url = `https:${data.mediaPrefix}${data.sitekey}/${data.info.movie_exported_name}.${data.info.movie_type}`;
-    links += `Lecture_${lec.defaultSort}.mp4 "${lec.url}"\n`;
+    links += `${lec.title.replaceAll(' ', '')}.mp4 "${lec.url}"\n`;
 }));
 var a = document.createElement("a");
 var file = new Blob([links], {type: "text/plain"});
